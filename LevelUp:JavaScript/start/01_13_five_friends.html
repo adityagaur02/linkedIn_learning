@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five Friends</title>
+</head>
+
+<body>
+    <!-- To run this file install "Live Server" extension and right the file from navigation bar and select "Open with Live Server" -->
+
+    <!-- Use this element to generate your friends -->
+     <div id="timeline"></div>
+
+     <script>
+        async function getUsers() {
+            let people = await fetch("https://randomuser.me/api/?results=5");
+            let data = await people.json();
+            const timeline = document.querySelector('#timeline');
+            data.results.forEach(person => {
+                let image = document.createElement('img');
+                image.src = person.picture.medium;
+                timeline.appendChild(image);
+            })
+        }
+        getUsers();
+     </script>
+    
+</body>
+</html>
