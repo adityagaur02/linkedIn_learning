@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_03_Vegetarian_Dinner</title>
+</head>
+<body>
+    <!-- To run this file install "Live Server" extension and right the file from navigation bar and select "Open with Live Server" -->
+
+    <!-- Use this element to render your menu -->
+     <ul id="menu"></ul>
+
+     <script>
+        const menu = [
+            {
+                name: "Chicken parmesan",
+                isVegetarian: false
+            },
+            {
+                name: "Stuffed shells",
+                isVegetarian: true
+            },
+            {
+                name: "Spaghetti and meatballs",
+                isVegetarian: false
+            },
+            {
+                name: "Tiramisu",
+                isVegetarian: true
+            }
+        ]
+        // Write your code here
+            function vegetarianMenu(menu) {
+                const menuNode = document.querySelector('#menu');
+                const vegetarianOptions = menu.filter(option => option.isVegetarian === true);
+                vegetarianOptions.forEach(option => {
+                    let dish = document.createElement("li");
+                    dish.textContent = option.name;
+                    menuNode.appendChild(dish);
+                });
+            }
+
+            vegetarianMenu(menu);
+
+     </script>
+</body>
+</html>
