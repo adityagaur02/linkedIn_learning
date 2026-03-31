@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dynamic Colors</title>
 </head>
+
 <body>
-    
+    <!-- To run this file install "Live Server" extension and right the file from navigation bar and select "Open with Live Server" -->
+
+    <!-- Use these elements to trigger the color change -->
+     <button id="blue">Blue</button>
+     <button id="pink">Pink</button>
+     <button id="green">Green</button>
+
+     <script>
+        // Write your code here
+        // solution 1 
+        // function makeBodyBlue() {
+        //     document.body.style.background = "#0f62fe"
+        // }
+
+        // function makeBodyPink() {
+        //     document.body.style.background = "#ff7eb6"
+        // }
+
+        // function makeBodyGreen() {
+        //     document.body.style.background = "#42be65"
+        // }
+
+        function changeColor(color) {
+            return function() {
+                document.body.style.background = color;
+            }
+        }
+
+        const bgColorBlue = changeColor("#0f62fe");
+        const bgColorPink = changeColor("#ff7eb6");
+        const bgColorGreen = changeColor("#42be65");
+
+        document.querySelector('#blue').addEventListener('click', bgColorBlue);
+        document.querySelector('#pink').addEventListener('click', bgColorPink);
+        document.querySelector('#green').addEventListener('click', bgColorGreen);
+
+        // Solution 1
+        // document.querySelector('#blue').addEventListener('click', makeBodyBlue);
+        // document.querySelector('#pink').addEventListener('click', makeBodyPink);
+        // document.querySelector('#green').addEventListener('click', makeBodyGreen);
+     </script>
 </body>
+
 </html>
